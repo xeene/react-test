@@ -3,24 +3,30 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import MoviesCard from "./components/moviesCard.jsx";
+import AnimeList from "./components/animeList.jsx";
 import UserList from "./components/userList.jsx";
 import TextDisplay from "./components/Text.jsx";
 
 function App() {
   // return <TextDisplay/>
 
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+  const [anime, setAnime] = useState([]);
 
   // Запрос может быть выполнен либо внутри метода жизненного цикла, если компонент является компонентом класса (???), либо внутри хука React useEffect(), если компонент является функциональным компонентом (?????).
 
   useEffect(() => {
     function fetchData() {
-      const apiUrl = "https://jsonplaceholder.typicode.com/users";
-      fetch(apiUrl)
+      const apiUrl = "https://kitsu.io/api/edge/anime";
+      fetch(apiUrl, {
+        'Accept': "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+      })
         .then((responce) => responce.json())
         .then((data) => {
-          setUsers(data);
+          setAnime(data);
           console.log("Data:", data);
+          console.log("Data.Date:", data.data);
         });
     }
 
@@ -31,7 +37,7 @@ function App() {
       <div className="movies-wrapper">
         <h1>Movie List</h1>
         <div className="movie-list">
-          {users && <UserList users={users}></UserList>}
+          <AnimeList anime={anime}></AnimeList>
         </div>
       </div>
     </>
