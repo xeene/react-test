@@ -13,8 +13,7 @@ function App() {
   // const [users, setUsers] = useState([]);
   const [anime, setAnime] = useState([]);
 
-  // Запрос может быть выполнен либо внутри метода жизненного цикла, если компонент является компонентом класса (???), либо внутри хука React useEffect(), если компонент является функциональным компонентом (?????).
-
+ 
   useEffect(() => {
     function fetchData() {
       const apiUrl = "https://kitsu.io/api/edge/anime";
