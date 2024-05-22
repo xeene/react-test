@@ -4,10 +4,19 @@ const AnimeList = ({anime}) => {
 
     return (
         
-        anime && <ul>
+        anime && <ul className = "movie-list">
             {
                 anime && anime.map((item)=>(
-                    <li key = {item.id}>{item.attributes.titles.en}</li>
+                    <li key = {item.id} className = "card">
+                         <img src={item.attributes.posterImage.small} />
+                         <div className='movie-info-block'>
+                            <div className='movie-title'><b>{item.attributes.titles.en_jp}</b></div>
+                            <div className='movie-info'>
+                                <div className='movie-release'><i>Release Date:</i> {item.attributes.startDate}</div>
+                                <div className='movie-eposides'><i>Episodes:</i> {item.attributes.episodeCount}</div>
+                            </div>
+                         </div>
+                    </li>
                 ))
             }
            
@@ -16,3 +25,6 @@ const AnimeList = ({anime}) => {
 }
 
 export default AnimeList;
+
+
+// 
