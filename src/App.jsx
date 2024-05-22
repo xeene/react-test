@@ -9,8 +9,6 @@ import TextDisplay from "./components/Text.jsx";
 
 function App() {
   // return <TextDisplay/>
-
-  // const [users, setUsers] = useState([]);
   const [anime, setAnime] = useState([]);
 
  
