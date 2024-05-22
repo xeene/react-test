@@ -4,7 +4,6 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import MoviesCard from "./components/moviesCard.jsx";
 import AnimeList from "./components/animeList.jsx";
-import UserList from "./components/userList.jsx";
 import TextDisplay from "./components/Text.jsx";
 
 function App() {
