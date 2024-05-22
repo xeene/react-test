@@ -22,7 +22,6 @@ function App() {
         .then((responce) => responce.json())
         .then((data) => {
           setAnime(data.data);
-          // console.log("Data:", data);
           // console.log("Data.Date:", data.data);
         });
     }
