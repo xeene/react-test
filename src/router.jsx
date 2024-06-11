@@ -8,7 +8,8 @@ import RegisterPage from "./routes/Reg-page.jsx";
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <RootPage/>,
+        element: <RootPage/>,        
+        error: "/error-page"
     },
     {
         path: "/protected",

@@ -9,6 +9,7 @@ const LoginPage = observer(() => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    
     const navigate = useNavigate();
 
     
@@ -25,13 +26,13 @@ const LoginPage = observer(() => {
       // const data = await response.json();
        
         console.log(password, email);
-    //   const data = {
-    //     token: "token",
-    //   };
-    //   if (data.token) {
-    //     authStore.login(data.token);
-    //     navigate("/protected");
-    //   }
+      const data = {
+        token: "token",
+      };
+      if (data.token) {
+        authStore.login(data.token);
+        navigate("/protected");
+      }
     } catch (error) {
       console.error("Ошибка входа", error);
     }

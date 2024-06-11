@@ -1,16 +1,15 @@
-import { animeStore } from "../store/animeStore.js";
 import { favStore } from "../store/favStore.js";
 import { observer } from 'mobx-react-lite';
-import FavBtn  from "./favBtn.jsx"
 
-const AnimeList = observer(() => {
-
+const FavList = observer(() => {
+// Вывод карточки аналогичен выводу на главной - как соединить аниме-лист и фав-лист?
     return (
         <ul className = "movie-list">
-            {(animeStore.isLoading && !animeStore.isError)
+            {(favStore.isLoading && !favStore.isError)
                 ? <div>Loading...</div>
-                : animeStore.animeList.map((item)=>(
+                : favStore.favList.map((item)=>(
                 <li key = {item.id} className="card">
+                    {/* Передача атарибутов? */}
                     <img src={item.attributes.posterImage.small} loading='lazy' style={{aspectRatio: '142 / 201'}} alt={item.attributes.titles.en_jp} />
                     <div className='movie-info-block'>
                         <div className='movie-title'><b>{item.attributes.titles.en_jp}</b></div>
@@ -20,14 +19,14 @@ const AnimeList = observer(() => {
                         </div>
                     </div>
                     <div>
-                        <FavBtn/>                        
+                        <button>Удалить</button>
                     </div>
                 </li>
             ))
             }
-            {animeStore.isError ? <div>{animeStore.errorText}</div> : null}
+            {favStore.isError ? <div>{favStore.errorText}</div> : null}
         </ul>
     );
 })
 
-export default AnimeList;
+export default FavList;

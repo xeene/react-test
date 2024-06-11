@@ -23,7 +23,9 @@ const Root = () => {
 
     const LogOut = () => {
         return (
-            <button onClick={LogOutRedir}>Log out</button>
+            <div>
+                <button onClick={() => navigate('protected')}>MY PAGE</button> | <button onClick={LogOutRedir}>Log out</button>
+            </div>
           
         )
     }
@@ -39,7 +41,7 @@ const Root = () => {
                 </div>
             </header>
             <div className="page-wrapper">
-            <button onClick={() => navigate('protected')}>go to protected page</button>
+            
             <h1 className="page-title">Movie List</h1>
             <div className="movie-list">
                 <AnimeList></AnimeList>
