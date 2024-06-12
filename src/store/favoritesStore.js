@@ -1,17 +1,17 @@
 import { makeAutoObservable } from 'mobx';
 
-class FavStore {
+class FavoritesStore {
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    showFav() {
+    showFavorite() {
         //передать ID пользователя
         //getUserMovies
     }
 
-    addToFav() {
+    addToFavorite() {
         //передать ID фильма и ID пользователя
         try {
             //проверка нет ли такого фильма уже
@@ -22,7 +22,7 @@ class FavStore {
         
     }
 
-    delFromFav() {
+    deleteFromFavorite() {
         //передать ID фильма и пользователя
         try {
             //проверка добавлен ли фильм
@@ -35,4 +35,4 @@ class FavStore {
 
 }
 
-export const favStore = new FavStore();
+export const favoritesStore = new FavoritesStore();

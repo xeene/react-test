@@ -3,7 +3,7 @@ import RootPage from "./routes/root.jsx";
 import ProtectedPage from "./routes/protected-page.jsx";
 import ProtectedRoute from "./routes/protectedRoute.jsx";
 import LoginPage from "./routes/login-page.jsx";
-import RegisterPage from "./routes/Reg-page.jsx";
+import RegisterPage from "./routes/registerPage.jsx";
 
 export const router = createBrowserRouter([
     {

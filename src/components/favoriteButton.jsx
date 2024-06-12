@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 //экспериментальная кнопка чтобы разобраться как подключаются компоненты
 //как передать animeList? this?
 
-const FavBtn = observer(() => {
+const FavoriteButton = observer(() => {
 
 
     const [favorites, setFavorites] = useState([]);
@@ -32,4 +32,4 @@ const FavBtn = observer(() => {
     )
 });
 
-export default FavBtn;
+export default FavoriteButton;

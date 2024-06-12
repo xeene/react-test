@@ -1,9 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { authStore } from "../store/authStore.js";
 import { useNavigate } from "react-router-dom";
-import React, {useState} from 'react';
-
-
+import {useState} from 'react';
 
 const LoginPage = observer(() => {
 
