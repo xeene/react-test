@@ -1,15 +1,17 @@
 import {createBrowserRouter} from "react-router-dom";
-import RootPage from "./routes/root.jsx";
-import ProtectedPage from "./routes/protected-page.jsx";
-import ProtectedRoute from "./routes/protectedRoute.jsx";
-import LoginPage from "./routes/login-page.jsx";
-import RegisterPage from "./routes/registerPage.jsx";
+import { lazy } from 'react';
+
+const ProtectedPage = lazy(() => import('./routes/protected-page.jsx'));
+const ProtectedRoute = lazy(() => import('./routes/protectedRoute.jsx'));
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <RootPage/>,        
-        error: "/error-page"
+        error: "/error-page",
+        async lazy() {
+            let Root = await import("./routes/root.jsx");
+            return { Component: Root.default };
+        },
     },
     {
         path: "/protected",
@@ -21,11 +23,16 @@ export const router = createBrowserRouter([
     },
     {
         path: "/login",
-        element: <LoginPage/>
+        async lazy() {
+            let LoginPage = await import("./routes/login-page.jsx");
+            return { Component: LoginPage.default };
+        },
     },
     {
         path: "/signup",
-        element: <RegisterPage/>
+        async lazy() {
+            let RegisterPage = await import("./routes/registerPage.jsx");
+            return { Component: RegisterPage.default };
+        },
     }
-
 ]);

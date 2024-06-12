@@ -4,6 +4,7 @@ import {useEffect} from "react";
 import {animeStore} from "../store/animeStore.js";
 import { authStore } from '../store/authStore';
 import {useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Root = () => {
 
@@ -18,7 +19,7 @@ const Root = () => {
     }, []);
 
     function LoggedState() {
-        return <span><a href="/login">Login</a> | <a href="/signup">Register</a></span> 
+        return <span><NavLink to="/login">Login</NavLink> | <NavLink to="/signup">Register</NavLink></span>
     }
 
     const LogOut = () => {
