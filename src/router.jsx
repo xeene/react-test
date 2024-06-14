@@ -1,8 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
-import { lazy } from 'react';
-
-const ProtectedPage = lazy(() => import('./routes/protected-page.jsx'));
-const ProtectedRoute = lazy(() => import('./routes/protectedRoute.jsx'));
+import ProtectedRoute from "./routes/protectedRoute.jsx";
+import ProtectedPage from "./routes/protected-page.jsx";
 
 export const router = createBrowserRouter([
     {
