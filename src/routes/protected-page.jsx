@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { authStore } from "../store/authStore.js";
 import { animeStore} from "../store/animeStore.js";
-// import {favsStore} from "../store/favsStore.js";
+import { favoritesStore } from "../store/favoritesStore.js";
 
 
 const ProtectedPage = () => {

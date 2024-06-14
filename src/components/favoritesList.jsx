@@ -1,7 +1,7 @@
-import { favStore } from "../store/favStore.js";
+import { favoritesStore } from "../store/favoritesStore.js";
 import { observer } from 'mobx-react-lite';
 
-const FavList = observer(() => {
+const FavoritesList = observer(() => {
 // Вывод карточки аналогичен выводу на главной - как соединить аниме-лист и фав-лист?
     return (
         <ul className = "movie-list">
@@ -29,4 +29,4 @@ const FavList = observer(() => {
     );
 })
 
-export default FavList;
+export default FavoritesList;

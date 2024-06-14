@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const RegisterPage = observer(() => {
 
-    const API_URL = import.meta.env.API_URL;
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -19,19 +19,16 @@ const RegisterPage = observer(() => {
 
 
         const configuration = {
-            method: "POST",
             headers: {
                 //'Access-Control-Allow-Origin': '*'
-                    },
-            url: API_URL + "/signup",
-            data: { 
-                name,
-                email,
-                password
             },
         };
     
-        axios(configuration)
+        axios.post(API_URL + '/signup', {
+            name,
+            email,
+            password
+        }, configuration)
         .then((result) => {
             setRegister(true);
             const data = {
@@ -41,7 +38,7 @@ const RegisterPage = observer(() => {
                 authStore.login(data.token);
                 navigate("/protected");
               }
-            // console.log(result);
+            console.log(result);
         })
         .catch((error) => {
             console.log(error);

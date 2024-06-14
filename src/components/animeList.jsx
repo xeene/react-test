@@ -1,7 +1,7 @@
 import { animeStore } from "../store/animeStore.js";
-import { favStore } from "../store/favStore.js";
+import { favoritesStore } from "../store/favoritesStore.js";
 import { observer } from 'mobx-react-lite';
-import FavBtn  from "./favBtn.jsx"
+import FavoriteButton  from "./favoriteButton.jsx"
 
 const AnimeList = observer(() => {
 
@@ -20,7 +20,7 @@ const AnimeList = observer(() => {
                         </div>
                     </div>
                     <div>
-                        <FavBtn/>                        
+                        <FavoriteButton/>
                     </div>
                 </li>
             ))
