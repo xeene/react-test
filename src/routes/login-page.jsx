@@ -14,14 +14,14 @@ const LoginPage = observer(() => {
   // const onLogin = async (username, password) => {
   const onLogin = async () => {
     try {
-      // const response = await fetch('/api/login', {
-      //     method: 'POST',
-      //     headers: {
-      //         'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify({ username, password }),
-      // });
-      // const data = await response.json();
+      const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+      });
+      const data = await response.json();
        
         console.log(password, email);
       const data = {

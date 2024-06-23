@@ -13,6 +13,14 @@ const FavoriteButton = observer(() => {
 
     const [favorites, setFavorites] = useState([]);
 
+    function toggleFavorites() {
+        if(favoritesStore.FavoritesList.includes(item.id)) {
+            //метод Delete
+        } else {
+            //метод Add
+        }
+}
+
     // function isFavoutire() {
     //     //как передать текущий элемент? this?
     //     //передать id текущего пользователя тоже?
@@ -26,8 +34,8 @@ const FavoriteButton = observer(() => {
 
     return (
         <div>
-             {/* <button onClick={isFavoutire()}>{this.favorite === true ? 'Remove' : 'Add'}</button> */}
-             <button>add</button>
+             {/* <button onClick={toggleFavorites}>{this.favorite === true ? 'Remove' : 'Add'}</button> */}
+             <button >Add</button>
         </div>
     )
 });

@@ -5,6 +5,7 @@ import {animeStore} from "../store/animeStore.js";
 import { authStore } from '../store/authStore';
 import {useNavigate} from "react-router-dom";
 import {NavLink} from "react-router-dom";
+import { favoritesStore } from "../store/favoritesStore.js";
 
 const Root = () => {
 
@@ -16,6 +17,7 @@ const Root = () => {
     }
     useEffect(() => {
         animeStore.getAnimeFromServer()
+        favoritesStore.showFavorite();
     }, []);
 
     function LoggedState() {
@@ -25,7 +27,7 @@ const Root = () => {
     const LogOut = () => {
         return (
             <div>
-                <button onClick={() => navigate('protected')}>MY PAGE</button> | <button onClick={LogOutRedir}>Log out</button>
+                <NavLink onClick={() => navigate('protected')}>MY PAGE</NavLink> | <NavLink onClick={LogOutRedir}>Log out</NavLink>
             </div>
           
         )
