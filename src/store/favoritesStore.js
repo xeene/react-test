@@ -2,50 +2,51 @@ import { makeAutoObservable } from 'mobx';
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
+var token = localStorage.getItem('token');
+
 
 class FavoritesStore {
 
     constructor() {
         makeAutoObservable(this);
     }
-
+     
 
     FavoritesList = [];
+    
 
-    showFavorite(token) {
-        //передать ID пользователя
-        //getUserMovies
-
-        
-            axios.get(API_URL + '/movies', {    
+    async showFavorite() {      
+           await axios.get(API_URL + '/movies', {    
                 headers: {
                     Authorization: `Bearer ${token}`,  
                   }
             }).
-            then((responce) => {
-            console.log('ok');
-            }).catch((response) =>
-            console.log('not ok'));
+            then((responce) => {            
+            this.FavoritesList = responce.data;
+            // console.log(responce.data);
+            // console.log(this.FavoritesList);
+            }).catch((error) =>
+            console.log(error));
     }
 
-    isFavoritesCheck(){
-
+    isFavoritesCheck(movieApiId){
+        return (this.FavoritesList.includes(movieApiId))
     }
 
-    addToFavorite(movieId) {
-        //передать ID фильма и ID пользователя
+    addToFavorite(movieApiId, name) {
+        const configuration = {
+            headers: {
+                 Authorization: `Bearer ${token}`,
+            },
+        };
         try {
-            //проверка нет ли такого фильма уже
-            //createMovie
             axios.post(API_URL + '/movies', {
-                movieId,
-                headers: {
-                    Authorization: `Bearer ${token}`,  
-                  }
-            }).then(
+                movieApiId, name
+            }, configuration).then(
                 (responce) => {
-                    this.FavoritesList.push(movieId),
-                    console.log(movieId)
+                    this.FavoritesList.push(movieApiId)
+                    // console.log(responce);
+                    // console.log(this.FavoritesList);
                 }
             )
             
@@ -55,16 +56,26 @@ class FavoritesStore {
         
     }
 
-    deleteFromFavorite() {
-        //передать ID фильма и пользователя
-        try {
-            //проверка добавлен ли фильм
-            //deleteMovie
-        } catch {
-            //фильм не добавлен 
-        }
+    //Пока не работает
+    // deleteFromFavorite(movieApiId) {
+    //     const configuration = {
+    //         headers: {
+    //              Authorization: `Bearer ${token}`,
+    //         },
+    //     };
+    //     //передать ID фильма и ID пользователя
+    //     try {
+    //         axios.delete(API_URL + `movies/${movieApiId}`, configuration).then(
+    //             (responce) => {
+    //                 this.FavoritesList.delete(movieApiId)
+    //             }
+    //         )
+            
+    //     } catch {
+    //         //фильм уже добавлен
+    //     }
         
-    }
+    // }
 
 }
 

@@ -8,18 +8,7 @@ import { useState, useMemo } from 'react';
 
 
 const AnimeCard = ({item}) => {
-
-
-    function ForFun() {
-        let test = authStore.isAuthenticated();
-        if (test) {
-            return console.log('im here');
-        } else {
-            return console.log('im not here');
-        }
-    }
-
-    
+ 
     
     // const isFavorite = useMemo(() => {
     //     if(favoritesStore.FavoritesList.includes(item.id)) {
@@ -28,13 +17,14 @@ const AnimeCard = ({item}) => {
     //         //метод Add
     //     }
     // })
+  
 
     function isFavorite(moveApiId) {
         return favoritesStore.FavoritesList.some(item => moveApiId === item.id);
     }
 
-    function addToFavorite(moveApiId) {
-        return favoritesStore.FavoritesList.push(moveApiId);
+    function addToFavorite(moveApiId, name) {
+        return favoritesStore.addToFavorite(moveApiId, name);
     }
 
 
@@ -51,7 +41,7 @@ const AnimeCard = ({item}) => {
         </div>
         <div>
             <FavoriteButton movieId = {item.id}/>
-            <div onClick={() => addToFavorite(item.id)}>Click me</div>
+            <div onClick={() => addToFavorite(item.id, item.attributes.titles.en_jp)}>Click me</div>
             {isFavorite(item.id) && <div>Added to Fav</div>} <div>Not Added to Fav</div>
         </div>
     </li>

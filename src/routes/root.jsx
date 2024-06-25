@@ -33,6 +33,8 @@ const Root = () => {
         )
     }
 
+    console.log(favoritesStore.FavoritesList);
+
     return (
         <div>
             <header className = "header">

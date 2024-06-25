@@ -1,15 +1,26 @@
 import { observer } from "mobx-react-lite";
 import { authStore } from "../store/authStore.js";
-import { animeStore} from "../store/animeStore.js";
 import { favoritesStore } from "../store/favoritesStore.js";
 import { NavLink } from "react-router-dom";
+import FavoritesList from "../components/favoritesList.jsx";
 
 
-const ProtectedPage = () => {
+const ProtectedPage = observer(() => {
+    console.log('------------------------------');
+ console.log(favoritesStore.FavoritesList);
+ 
     return (
-        <div><div><NavLink to ="/">На главную</NavLink></div>
-            Это защищённая страница, доступная только авторизованным пользователям.</div>
+        <div><div><NavLink to="/">На главную</NavLink></div>
+            <div>
+                <ul className="movie-list">
+                    {favoritesStore.FavoritesList.map((item) => (
+                        <FavoritesList item={item}></FavoritesList>
+                    ))
+                    }
+                </ul>
+            </div>
+        </div>
     );
-};
+});
 
 export default ProtectedPage;
