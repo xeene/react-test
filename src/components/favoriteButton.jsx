@@ -18,17 +18,6 @@ const FavoriteButton = observer(() => {
         return (favoritesStore.FavoritesList.includes(item.id)) 
 }
 
-    // function isFavoutire() {
-    //     //как передать текущий элемент? this?
-    //     //передать id текущего пользователя тоже?
-    //     const newFavorites = favorites.map(item => {
-    //         вызвать здесь addToFav()?
-    //       });
-      
-    //       setFavorites(newFavorites);
-    //      
-    // }
-
     return (
         <div>
              <button>{ toggleFavorites ? 'Add' : 'Remove'}</button>
